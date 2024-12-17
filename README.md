@@ -144,7 +144,7 @@ Spectrogram with 40 ms Hamming window and 50% overlap, each containing 1024 magn
 ## 2. MLP based DoA estimator
 
 <div style="text-align: center;">
-    <img src="images/MLP_DoA_estimator.png" alt="Example Image">
+    <img src="images/MLP_DoA_estimator.png" alt="Example Image" width="400" height="auto">
 </div>
 
 ### Input 
@@ -152,7 +152,7 @@ Spectrogram with 40 ms Hamming window and 50% overlap, each containing 1024 magn
 A 28×21 GCC graph, where 28 represents 28 microphone pairs and 21 indicates the 21 time delay samples selected for calculation for each pair of microphones. In addition, some weights are added to the input to make the model robust to the noise.
 
 <div style="text-align: center;">
-    <img src="images/MLP_DoA_Estimator_Noise_Filter.png" alt="Example Image">
+    <img src="images/MLP_DoA_Estimator_Noise_Filter.png" alt="Example Image" width="300" height="auto">
 </div>
 
 ### Output
@@ -162,7 +162,7 @@ The posterior probability of a DOA angle is p(θt|ot) for θt = 0, ..., 359 degr
 ## 3. Convolutional neural network with GCCFB
 
 <div style="text-align: center;">
-    <img src="images/CNN_GCCFB.png" alt="Example Image">
+    <img src="images/CNN_GCCFB.png" alt="Example Image" width="200" height="auto">
 </div>
 
 ### Preprocessing
@@ -173,7 +173,7 @@ The posterior probability of a DOA angle is p(θt|ot) for θt = 0, ..., 359 degr
 ## 4. Two-stage neural network with GCCFB
 
 <div style="text-align: center;">
-    <img src="images/TSNN-GCCFB.png" alt="Example Image">
+    <img src="images/TSNN-GCCFB.png" alt="Example Image" width="500" height="auto">
 </div>
 
 
@@ -186,7 +186,7 @@ GCC is used to estimate the time delay between two microphone, where \( 𝜏 \) 
 
 
 <div style="text-align: center;">
-    <img src="images/gcc_formulation.png" alt="Example Image">
+    <img src="images/gcc_formulation.png" alt="Example Image" width="300" height="auto">
 </div>
 
 For example, if the correlation coefficient reaches its highest value when 𝜏 = 0 it indicates that there is no time delay between the two signals.
