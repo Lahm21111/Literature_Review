@@ -167,6 +167,8 @@ The posterior probability of a DOA angle is p(θt|ot) for θt = 0, ..., 359 degr
 
 ### Preprocessing
 
+**GCCFB**: it works by decomposing the signal into multiple mel-scale frequency bands (which are well-suited to the spectral characteristics of speech), and then calculating GCC-PHAT for each frequency band separately. This helps to preserve delay information for each frequency band.
+
 
 ## 4. Two-stage neural network with GCCFB
 
