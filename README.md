@@ -110,38 +110,84 @@ Spectrogram with 40 ms Hamming window and 50% overlap, each containing 1024 magn
 
 ### Direction of Arrival Phase
 
-<div style="display: flex; justify-content: center;">
-  <table>
-    <tr>
-      <td>Layer</td>
-      <td>Dimension</td>
-    </tr>
-    <tr>
-      <td>SPS</td>
-      <td>100*614</td>
-    </tr>
-    <tr>
-      <td>Reshape</td>
-      <td>100*614*1</td>
-    </tr>
-    <tr>
-      <td>2 Convolution Layers</td>
-      <td>100*307*16</td>
-    </tr>
-    <tr>
-      <td>Concatenate and 1 Linear Layer</td>
-      <td>100*32</td>
-    </tr>
-    <tr>
-      <td>2 Bidirectional GRU Layers</td>
-      <td>100*32</td>
-    </tr>
-    <tr>
-      <td>1 Linear Layer</td>
-      <td>100*432</td>
-    </tr>
-  </table>
+<table align="center">
+  <tr>
+    <td>Layer</td>
+    <td>Dimension</td>
+  </tr>
+  <tr>
+    <td>SPS</td>
+    <td>100*614</td>
+  </tr>
+  <tr>
+    <td>Reshape</td>
+    <td>100*614*1</td>
+  </tr>
+  <tr>
+    <td>2 Convolution Layers</td>
+    <td>100*307*16</td>
+  </tr>
+  <tr>
+    <td>Concatenate and 1 Linear Layer</td>
+    <td>100*32</td>
+  </tr>
+  <tr>
+    <td>2 Bidirectional GRU Layers</td>
+    <td>100*32</td>
+  </tr>
+  <tr>
+    <td>1 Linear Layer</td>
+    <td>100*432</td>
+  </tr>
+</table>
+
+## 2. MLP based DoA estimator
+
+<div style="text-align: center;">
+    <img src="images/MLP_DoA_estimator.png" alt="Example Image">
 </div>
+
+### Input 
+
+A 28×21 GCC graph, where 28 represents 28 microphone pairs and 21 indicates the 21 time delay samples selected for calculation for each pair of microphones. In addition, some weights are added to the input to make the model robust to the noise.
+
+<div style="text-align: center;">
+    <img src="images/MLP_DoA_Estimator_Noise_Filter.png" alt="Example Image">
+</div>
+
+### Output
+
+The posterior probability of a DOA angle is p(θt|ot) for θt = 0, ..., 359 degrees.
+
+## 3. Convolutional neural network with GCCFB
+
+<div style="text-align: center;">
+    <img src="images/CNN_GCCFB.png" alt="Example Image">
+</div>
+
+### Preprocessing
+
+
+## 4. Two-stage neural network with GCCFB
+
+<div style="text-align: center;">
+    <img src="images/TSNN-GCCFB.png" alt="Example Image">
+</div>
+
+
+
+# Other Knowledge
+
+## GCC: Generalized Cross Correlation
+
+GCC is used to estimate the time delay between two microphone, where \( 𝜏 \) is the delay in the discrete domain, \( * \) denotes the complex conjugation, and \( R \) denotes the real part of a complex number. The peak in GCC-PHAT is used to estimate the TDOA.
+
+
+<div style="text-align: center;">
+    <img src="images/gcc_formulation.png" alt="Example Image">
+</div>
+
+For example, if the correlation coefficient reaches its highest value when 𝜏 = 0 it indicates that there is no time delay between the two signals.
 
 
 
