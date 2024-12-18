@@ -229,7 +229,19 @@ Time delay feature space to  degree feature: extract latent DoA features in each
 
 The second stage aggregates information across all frequencies in a neighbor DoA area and outputs the likelihood of a sound being in each DoA area.
 
+## 5. RD3Net
 
+<div style="text-align: center;">
+    <img src="images/R3DNet.png" alt="Example Image" width="250" height="auto">
+</div>
+
+### Input
+
+Multichannel amplitude spectrograms and inter-channel phase differencees are used as frame-wised features. The STFT was applied with a configuration of 20 ms frame length and 10 ms frame hop.
+
+### Output
+
+The name of the sound event and source angle.
 
 # Other Knowledge
 
