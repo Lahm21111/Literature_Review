@@ -66,6 +66,44 @@ Propose to use neural networks for simultaneous detection and localization of mu
 
     (c) Convolutional neural network with GCCFB: first extract the direction information from the delay message within similar frequency region, then extract the possibility of DoA from all-frequency information (The model is shown in the network structure part)
 
+## 5. SOUND EVENT LOCALIZATION AND DETECTION USING ACTIVITY-COUPLED CARTESIAN DOA VECTOR AND RD3NET
+
+### Summary:
+
+A two stage system is proposed to solve the sound event localization and sound event detection task simultaneously using an activity-coupled Cartesian DOA vector representation. During the preprocessing, two data augmentation techniques are applied to input signals prior to the feature extraction while one data augmentation techinique exploiting multichannel information in the feature domain is performed after the feature extraction.
+
+### Take Away Information:
+
+1. Multichannel amplitude spectrograms and inter-channel phase differences are used as frame-wise features
+
+2. Data Augmentation: 
+
+    (a) EMDA: Mix the sound with random amplitudes to simulate a noisy environment
+
+    (b) Rotate: Rotate the sound source (they used a circular microphone layout in the research)
+
+    (c) Multichannel SpecAugment: Extend a channel dimension to the feature map
+
+3. The RD3Net model is adopt from D3Net architecture which is previously used for sound separation, the changes of the model would be compared in the nerual network part. 
+
+4. A binary cross entropy is used for the event detection head and masked MSE is used for DoA detection had.
+
+## 6. D3Net*
+
+### Summary:
+
+The paper ultilize a CNN based nerual network to solve the music sound separation problem. In this work, the author combine the advantages of DenseNet and dilated convolution to propose a novel network architecture.
+
+### Take Away Information: 
+
+1. Propose a nested architecture of dilated dense block to effectively repeat dilation factors multiple times with dense connections that ensure the sufficient depth required for modeling resolution
+
+<div style="text-align: center;">
+    <img src="images/multi_dilated_convolution.png" alt="Example Image" width="400" height="auto">
+</div>
+
+2. Indicate that applying a dilated convolution to skip connections from early layers without handling the aliasing problem makes it difﬁcult to extract information.
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
