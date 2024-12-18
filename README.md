@@ -169,12 +169,27 @@ The posterior probability of a DOA angle is p(θt|ot) for θt = 0, ..., 359 degr
 
 **GCCFB**: it works by decomposing the signal into multiple mel-scale frequency bands (which are well-suited to the spectral characteristics of speech), and then calculating GCC-PHAT for each frequency band separately. This helps to preserve delay information for each frequency band.
 
+### Input 
+
+51 * 40 * 6 GCCFB graph
+
+### Output
+
+The same output as the MLP based DoA neural network
 
 ## 4. Two-stage neural network with GCCFB
 
 <div style="text-align: center;">
     <img src="images/TSNN-GCCFB.png" alt="Example Image" width="500" height="auto">
 </div>
+
+### Subnet I
+
+Time delay feature space to  degree feature: extract latent DoA features in each fiter bank  on individual frequency regions.
+
+### Subnet II
+
+The second stage aggregates information across all frequencies in a neighbor DoA area and outputs the likelihood of a sound being in each DoA area.
 
 
 
