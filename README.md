@@ -104,6 +104,30 @@ The paper ultilize a CNN based nerual network to solve the music sound separatio
 
 2. Indicate that applying a dilated convolution to skip connections from early layers without handling the aliasing problem makes it difﬁcult to extract information.
 
+## 7. Environmental Sound Classification with CNN
+
+## 8. Deep CNN for Environmental Sound Classification and Data Augmentation
+
+### Summary:
+
+Deep convolutional neural networks (CNNs) are well-suited for environmental sound classification due to their ability to learn discriminative spectro-temporal features. However, the scarcity of labeled data limits their application. This study proposes a deep CNN architecture and audio data augmentation techniques to address this issue. Experiments show that the combination of data augmentation and the proposed CNN achieves state-of-the-art performance, outperforming both the CNN without augmentation and shallow dictionary learning models. Additionally, different augmentation methods affect the classification accuracy of each class differently, suggesting that class-conditional data augmentation could further enhance performance.
+
+### Take Away Information:
+
+1. A deep CNN arhitecture with three convolutional layers interleaved with two pooling operations, followed by two fully connected layers is contrusted for sound classification.
+
+2. Four different kinds of audio data augmentation methods are used:
+
+    (1) Time stretching: slow down or speed up the audio sample 
+
+    (2) Pith shiftin (Greatest Positive Impact): raise or lower the pitch of the audio sample 
+
+    (3) Dynamic range compression: compress the dynamic range of the sample using four parameterizations (What is dynamic range: the sound from a boardingcast and a high-quality speakers is different)
+
+    (4) Background noise: mix the sample with another recording containing background sounds from different types of acoustic scenes
+
+3. The result shows that CNN with augmentation method perform much better than the traditional methods, also it indicates that the superiorperformance of the proposed SB-CNN is not only due to theaugmented training set, but rather thanks to the combinationof an augmented training set with the increased capacity andrepresentational power of the deep learning model.
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
@@ -243,6 +267,47 @@ Multichannel amplitude spectrograms and inter-channel phase differencees are use
 
 The name of the sound event and source angle.
 
+## 6. SB-CNN (Sound Classification Neural Network)
+
+<table align="center">
+  <tr>
+    <td>Layer</td>
+    <td>Size</td>
+  </tr>
+  <tr>
+    <td>Conv1</td>
+    <td>24*5*5</td>
+  </tr>
+  <tr>
+    <td>Conv2</td>
+    <td>48*5*5</td>
+  </tr>
+  <tr>
+    <td>Conv3</td>
+    <td>48*5*5</td>
+  </tr>
+  <tr>
+    <td>Linear Layer</td>
+    <td>64</td>
+  </tr>
+  <tr>
+    <td>Linear Layer</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>Softmax</td>
+    <td>10</td>
+  </tr>
+</table>
+
+### Input 
+
+Time-frequency patches taken from the log-scaled mel-spectrogram representation of the audio signal. The spectrogram is extracted with 128 components covering the audible frequency range (0-22050 Hz), using a window size of 23 ms.
+
+### Output
+
+Possibility of the related class 
+
 # Other Knowledge
 
 ## GCC: Generalized Cross Correlation
@@ -255,6 +320,7 @@ GCC is used to estimate the time delay between two microphone, where \( 𝜏 \) 
 </div>
 
 For example, if the correlation coefficient reaches its highest value when 𝜏 = 0 it indicates that there is no time delay between the two signals.
+
 
 
 
