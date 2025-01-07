@@ -120,13 +120,42 @@ Deep convolutional neural networks (CNNs) are well-suited for environmental soun
 
     (1) Time stretching: slow down or speed up the audio sample 
 
-    (2) Pith shiftin (Greatest Positive Impact): raise or lower the pitch of the audio sample 
+    (2) Pitch shifting (Greatest Positive Impact): raise or lower the pitch of the audio sample 
 
     (3) Dynamic range compression: compress the dynamic range of the sample using four parameterizations (What is dynamic range: the sound from a boardingcast and a high-quality speakers is different)
 
     (4) Background noise: mix the sample with another recording containing background sounds from different types of acoustic scenes
 
 3. The result shows that CNN with augmentation method perform much better than the traditional methods, also it indicates that the superiorperformance of the proposed SB-CNN is not only due to theaugmented training set, but rather thanks to the combinationof an augmented training set with the increased capacity andrepresentational power of the deep learning model.
+
+##  9. Long-range Acoustic Beamforming for Multimodal Scene Understanding
+
+### Summary:
+
+The author introduce long-range acoustic beamforming of sound produced by road users in-the-wild as a complementary sensing modality to traditional electromagnetic radiation-based sensors. With the help of a neural aperture expansion method for beamforming, it shows its effectiveness for multimodal automotive object detection when coupled with RGB images in challenging automotive scenarios.
+
+### Take Away Information:
+
+1. Multimodal signals, combining beamforming and RGB data, are utilized for object detection to enhance detection accuracy.
+
+2. To improve beamforming performance, the author trained a neural network to synthetically expand the microphone array's aperture, enabling higher-fidelity beamforming maps with reduced PSF distortion.
+
+3. Acoustic sensors complement photon-based sensors by detecting incoming objects that are not directly visible to RGB or lidar systems.
+
+## 10. Hearing what you cannot see: Acoustic Vehicle Detection Around Corners
+
+### Summary:
+
+This work proposes to use passive acoustic percep-tion as an additional sensing modality for intelligent vehicles. We demonstrate that approaching vehicles behind blind corners can be detected by sound before such vehicles enter in line-of-sight. We have equipped a research vehicle with a roof-mounted microphone array, and show on data collected with this sensor setup that wall reﬂections provide information on the presence and direction of occluded approaching vehicles.
+
+### Take Away Information:
+
+1. Sound -> STFT -> Bandpass and Segmentation -> Directional of Arrival -> Classifier
+
+2. An approaching vehicle could be detected with the same accuracy as visual baseline already more than one second ahead. 
+
+3. It has difficulties to perform reliably in unseen test environments. 
+
 
 # Network Structure
 
