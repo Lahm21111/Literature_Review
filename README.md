@@ -156,6 +156,54 @@ This work proposes to use passive acoustic percep-tion as an additional sensing 
 
 3. It has difficulties to perform reliably in unseen test environments. 
 
+## 11. Acoustic Non-Line-of-Sight Vehicle Approaching
+and Leaving Detection
+
+### Summary:
+
+This work propose a deep learning-based acoustic non-line-of-sight (NLOS) vehicle detection method. Using direction-of-arrival and time-frequency features from microphone array data, we designed a parallel neural network to predict the direction and approach/leave status of occluded vehicles at intersections. Experiments with urban data showed a 96.71% accuracy for 6-class traffic conditions and detected approaching vehicles 1 second before entering the line of sight, outperforming state-of-the-art methods and providing valuable reaction time and traffic information for intelligent vehicles.
+
+### Take Away Information
+
+1. Except from SRP-PHAT, the author also use spectrogram as an input to explore the application of diverse acoustic features. (time-frequency feature in the spectrogram is effective for the NLOS vehicle approaching and leaving detection)
+
+2. The traffic around the corner is predicted as one of the six categories: front, left approach, left leave, right approach, right leave, none 
+
+3. Use frequency masking and time masking for data augmentation to alleviate the problem of overfitting and the large amount of training data.
+
+4. Leaving is more challenging to detect than the approaching one on the same side, which might be related to the influence of the vehicle's sounding position and body structure on sound propagation.
+
+## 12. Emergency Vehicles Audio Detection and Localization in Autonomous
+Driving
+
+### Summary:
+
+The author designed a model to perform three tasks simultaneously, including siren existence, siren sound source direction and siren sound source distance detection, which share a unified backbone consisting of two streams that process the raw waveform and handcraft features separately. In addition, they only employed two general microphone with 8 channel which is no more than 100 dollars.
+
+### Take Away Information:
+
+1. Each microphone has 4 channels located at the front, back, left and right.
+
+2. One stream processes raw waveform and the other processes the combination of Mel-frequency cepstral coeffcients and log-mel spectrogram. 
+
+3. The angle MAE achieve the best performance when the distance is 30 meter, the performance is not good when the distance is too far or too close (both of the sound source are moving). 
+
+## 13. Acoustic-based Emergency Vehicle Detection Using Convolutional Neural Networks
+
+### Summary:
+
+This work develops an automatic detection system for emergency vehicle sirens to alert drivers and reduce accidents, especially when in-vehicle audio systems block siren sounds. The proposed CNN-based model, SirenNet, uses two streams: WaveNet for raw waveforms and MLNet for MFCC and log-mel spectrogram features. Tested on a diverse dataset, SirenNet achieved 98.24% accuracy and maintained 96.89% accuracy with short 0.25-second samples. This system enhances driver safety and supports autopilot systems.
+
+### Take Away Information:
+
+1. To achieve the generality of the detection system, they collect siren signals of emergency vehicles in real-world traffic from many countries.
+
+2. 1D-CNN model (WaveNet) which can automatically learns from raw waveform the useful features for classification.
+
+3. A 2D-Stream(MFCC and Spectrogram) is processed with 2D-CNN.
+
+4. Two stream method could achieve about 2% more accuracy than any one stream method.
+
 
 # Network Structure
 
@@ -336,6 +384,20 @@ Time-frequency patches taken from the log-scaled mel-spectrogram representation 
 ### Output
 
 Possibility of the related class 
+
+## 7. NLOS vehicle approaching and leaving detection system
+
+<div style="text-align: center;">
+    <img src="images/NLOS.png" alt="Example Image" width="750" height="auto">
+</div>
+
+### Input
+
+A sound split with a selected sample duration is processed to a SRP-PHAT(x axis is time and y axis is the potential azimuth angle that the sound comes) and STFT 
+
+### Output
+
+A classification result for the state of the car behind the corner: SRP-PHAT and STFT are processed separately, with SRP-PHAT playing a crucial role in direction detection, while STFT provides Doppler information, essential for identifying whether the car is approaching or leaving.
 
 # Other Knowledge
 
