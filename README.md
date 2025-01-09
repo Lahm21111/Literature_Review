@@ -204,6 +204,21 @@ This work develops an automatic detection system for emergency vehicle sirens to
 
 4. Two stream method could achieve about 2% more accuracy than any one stream method.
 
+## 14. Self-Supervised Moving Vehicle Detection From Audio-Visual Cue
+
+### Summary:
+
+The author propose a self-supervised approach that leverages audio-visual cues to detect moving vehicles. Also a dataset contain over 70 minutes of time-synchronized audio and video recording of vehicles on roads including more than 300 bounding box annotations are 
+
+### Take Away Information:
+
+1. The model has two input: We denote an image and its associated audio segment at time step t as the pair (It, At), where At denotes the concatenated spectrograms ob-tained from the microphone signals temporally centered around the recording time-stamp of the image It
+
+2. The image and video message are encoded in a feature dimension, and a heatmap is the euclidean distance between the each feature vector in the image feature map with the audio feature vector 
+
+3. Separate the sample to Positive and Negative (with or without moving vehicle), then formulate the problem as a binary classification problem.
+
+4. A student net is contrusted with EfficientDet with audio information only
 
 # Network Structure
 
