@@ -208,7 +208,7 @@ This work develops an automatic detection system for emergency vehicle sirens to
 
 ### Summary:
 
-The author propose a self-supervised approach that leverages audio-visual cues to detect moving vehicles. Also a dataset contain over 70 minutes of time-synchronized audio and video recording of vehicles on roads including more than 300 bounding box annotations are 
+The author propose a self-supervised approach that leverages audio-visual cues to detect moving vehicles. Also a dataset contain over 70 minutes of time-synchronized audio and video recording of vehicles on roads including more than 300 bounding box annotations. 
 
 ### Take Away Information:
 
@@ -220,6 +220,21 @@ The author propose a self-supervised approach that leverages audio-visual cues t
 
 4. A student net is contrusted with EfficientDet with audio information only
 
+## 15. Towards Robust Audio-Based Vehicle Detection via Importance-Aware Audio-Visual Learning
+
+### Summary:
+
+ In this paper, the author present a new audio-based vehicle detector that can transfer multimodal knowledge of vehicles to the audio modality during training. To this end, they combine the audio-visual modal knowledge according to the importance of each modality to generate integrated audio-visual feature. Also, they introduce an audio-visual distillation (AVD) loss that guides representation of the audio modal fea-ture to resemble that of the integrated audio-visual feature. As a result, our audio-based detector can perform robust vehicle detection.
+
+ ### Take Away Information:
+
+ 1. The model will not merely combine audio and visual data; instead, it will assign a weight to each modality based on its relative importance.
+
+ 2. We introduce an audio-visual distillation loss to perform knowledge distillation from the audio-visual feature to the audio modal feature. 
+
+ 3. During training, the model leverages both audio and visual information to encode two representations, \(F_a\) (audio) and \(F_{av}\) (audio-visual), which are processed by two shared-weight heads to predict the vehicle's classification and localization. However, during inference, only the audio input is used for localization prediction.
+
+ 4. The importance of each modality is considered because one modality may perform poorly, requiring the model to assign greater weight to the other.
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
