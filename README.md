@@ -226,15 +226,50 @@ The author propose a self-supervised approach that leverages audio-visual cues t
 
  In this paper, the author present a new audio-based vehicle detector that can transfer multimodal knowledge of vehicles to the audio modality during training. To this end, they combine the audio-visual modal knowledge according to the importance of each modality to generate integrated audio-visual feature. Also, they introduce an audio-visual distillation (AVD) loss that guides representation of the audio modal fea-ture to resemble that of the integrated audio-visual feature. As a result, our audio-based detector can perform robust vehicle detection.
 
- ### Take Away Information:
+### Take Away Information:
 
- 1. The model will not merely combine audio and visual data; instead, it will assign a weight to each modality based on its relative importance.
+1. The model will not merely combine audio and visual data; instead, it will assign a weight to each modality based on its relative importance.
 
- 2. We introduce an audio-visual distillation loss to perform knowledge distillation from the audio-visual feature to the audio modal feature. 
+2. We introduce an audio-visual distillation loss to perform knowledge distillation from the audio-visual feature to the audio modal feature. 
 
- 3. During training, the model leverages both audio and visual information to encode two representations, \(F_a\) (audio) and \(F_{av}\) (audio-visual), which are processed by two shared-weight heads to predict the vehicle's classification and localization. However, during inference, only the audio input is used for localization prediction.
+3. During training, the model leverages both audio and visual information to encode two representations, \(F_a\) (audio) and \(F_{av}\) (audio-visual), which are processed by two shared-weight heads to predict the vehicle's classification and localization. However, during inference, only the audio input is used for localization prediction.
 
- 4. The importance of each modality is considered because one modality may perform poorly, requiring the model to assign greater weight to the other.
+4. The importance of each modality is considered because one modality may perform poorly, requiring the model to assign greater weight to the other.
+
+## 16. Regression versus Classification for Neural Network Based Audio Source Localization
+
+### Summary:
+
+The author compares the performance of regression and classification neural networks for single-source direction-of-arrival (DOA) estimation. Specifically, two regression methods and two encoding methods for classification are presented and analyzed. The results indicate that regression using Cartesian coordinates is generally more accurate, except in scenarios with localized interference.
+
+### Take Away Information:
+
+1. In the regression formulation, the goal is to directly recover an estimate of the azimuth and elevation degree. For the classification formulation, the neural network outputs a score for each class on the discretized unit sphere.
+
+2. Input: a 6-channel normalized intensity vector extracted from first-order Ambisonics format.
+
+3. The neural nework is constructed with CNN and LSTM layers.
+
+4. The label for the classification problem is constructed with Gibbs distribution, and also the Gibbs distribution is integrated with the cross-entropy loss.
+
+5. Classification problem perform better than the regression networks targeting the spherical coordinates, while regression is better for Cartesian coordinates. 
+
+## 17. Multi-Target DoA Estimation with an Audio-Visual Fusion Mechanism
+
+### Summary:
+
+This work proposes the use of neural networks with audio and visual signals for multi-speaker localization. By leveraging heterogeneous sensors, the method aims to overcome challenges associated with single-modal data, such as noise, reverberation, illumination variations, and occlusions. An adaptive weighting mechanism for audio-visual fusion is introduced to address these issues. Additionally, a novel video simulation method is proposed to generate visual features from noisy target 3D annotations, which are synchronized with acoustic features.
+
+### Take Away Information:
+
+1. Only GCC-PHAT is used as the acoustic input feature of the network.
+
+2. The bounding box for the face detection is used as the vision feature, but it is encoded by Gaussian Distribution.
+
+3. The first neural network is consturcted with MLP layers, and it only uses the GCC-PHAT and visual feature as inputs.
+
+4. The second network introduce a adaptive weighting mechanism for the input information, the details could be seen the following model part. 
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
