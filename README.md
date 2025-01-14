@@ -270,6 +270,24 @@ This work proposes the use of neural networks with audio and visual signals for 
 
 4. The second network introduce a adaptive weighting mechanism for the input information, the details could be seen the following model part. 
 
+## 18. Self-supervised Moving Vehicle Tracking with Stereo Sound 
+
+### Summary:
+
+This work presents a system for localizing moving vehicles using stereo sound, without visual input during inference. By leveraging unlabeled audiovisual data, the system employs a vision "teacher" network for vehicle detection and a stereo-sound "student" network for localization. The knowledge from the visual model is transferred to the audio domain through self-supervision, using the co-occurrence of audio and visual streams in unlabeled videos. Experimental results on a new Auditory Vehicle Tracking dataset show that the approach outperforms baseline methods and can improve vehicle localization under poor lighting conditions.
+
+### Take Away Information:
+
+1. A vision detector is first used to detect the objects and a stereo-sound network is trained to map the audio signals to the bounding box coordinates predicted by the vision network.
+
+2. Considering that different camera angles can cause more significant changes to visual content than to audio, the camera's meta-data is also included in the training data.
+
+3. In addition to the loss function for the bounding box, the author also designs an internal loss for the encoding space. The goal is to encourage the audio-net and vision-net to learn similar features.
+
+4. The spectrogram input has a better performance than the raw waveform input.
+
+5. With the help of the camera information in the input, the generalization could be significantly improved, bt still have considerable performance gaps with seen scenarios.
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
@@ -464,6 +482,28 @@ A sound split with a selected sample duration is processed to a SRP-PHAT(x axis 
 
 A classification result for the state of the car behind the corner: SRP-PHAT and STFT are processed separately, with SRP-PHAT playing a crucial role in direction detection, while STFT provides Doppler information, essential for identifying whether the car is approaching or leaving.
 
+## 8. Multi-Target DoA Estimation with Audio-Visual Fusion Mechanism
+
+<div style="text-align: center;">
+    <img src="images/MLP_AV.png" alt="Example Image" width="300" height="auto">
+</div>
+
+### Input 
+
+Both visual and acoustic features are used as inputs. The acoustic information is encoded into a GCC-PHAT feature, which captures the relationship between different microphones. For the visual information, the bounding box from the face detection is encoded into two vectors representing the height and width dimensions, as shown in the figure below.
+
+<div style="text-align: center;">
+    <img src="images/vision_encoding_MLP_AV.png" alt="Example Image" width="350" height="auto">
+</div>
+
+### Structure
+
+The structure of the neural network is straightforward. The key difference between the two networks is that the second network concatenates both the raw data and the processed data before making the prediction.
+
+### Output
+
+The same output as the MLP based DoA neural network
+
 # Other Knowledge
 
 ## GCC: Generalized Cross Correlation
@@ -476,6 +516,8 @@ GCC is used to estimate the time delay between two microphone, where \( 𝜏 \) 
 </div>
 
 For example, if the correlation coefficient reaches its highest value when 𝜏 = 0 it indicates that there is no time delay between the two signals.
+
+
 
 
 
