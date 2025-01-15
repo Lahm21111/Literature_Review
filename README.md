@@ -288,6 +288,20 @@ This work presents a system for localizing moving vehicles using stereo sound, w
 
 5. With the help of the camera information in the input, the generalization could be significantly improved, bt still have considerable performance gaps with seen scenarios.
 
+## 19. Review of Emergency Vehicle Detection Techniques by Acoustic Signals
+
+### Take Away Information:
+
+1. With the help of an emergency vehicle detection system: Deal with the problem that modern cars cabin is designed to insulate their inside environment from outside noise and help hearing-impaired people to drive in most of the world
+
+2. Some traditional method like attack-decay-sustain-release analysis could be used on siren analysis
+
+3. A dynamic range compression method could be used to segregate the foreground event
+
+4. A restriction between 500 and 2000 Hz is a common band filter for siren
+
+5. 
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
