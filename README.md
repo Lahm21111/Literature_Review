@@ -300,7 +300,18 @@ This work presents a system for localizing moving vehicles using stereo sound, w
 
 4. A restriction between 500 and 2000 Hz is a common band filter for siren
 
-5. 
+
+## 20. Few-Shot Emergency Siren Detection
+
+### Summary:
+
+This paper proposes a few-shot metric learning approach for emergency siren detection, using prototypical networks trained on synthetic or public data. At inference, it identifies ambulance sirens with minimal examples and evaluates performance on recordings from in-car sensors, achieving high AUPRC scores (0.86 unfiltered, 0.91 filtered). The method outperforms convolutional baselines and demonstrates reliability for real-world in-car emergency detection systems.
+
+### Take Away Information:
+
+1. The few-shot leaning first embed the large-dimension information to an embedding space with low dimension, then it is easy for the model to learn the feature in the low dimension space.
+
+2. Use few channels to train the way-shot model -> use the model on all the channels
 
 # Network Structure
 
@@ -517,6 +528,20 @@ The structure of the neural network is straightforward. The key difference betwe
 ### Output
 
 The same output as the MLP based DoA neural network
+
+## 9. Classification versus Regression NN
+
+<div style="text-align: center;">
+    <img src="images/classVSregre.png" alt="Example Image" width="400" height="auto">
+</div>
+
+### Input:
+
+The STFT feature is used as an input, during the processing 3 conv layers and 2 LSTM layers are used to handle the features.
+
+### Output:
+
+Two linear layers are used to decode the features into the outputs: the regression output represents the angle of the sound, while the classification output represents the probability of the sound occurring at a specific angle.
 
 # Other Knowledge
 
