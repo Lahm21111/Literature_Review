@@ -313,6 +313,21 @@ This paper proposes a few-shot metric learning approach for emergency siren dete
 
 2. Use few channels to train the way-shot model -> use the model on all the channels
 
+## 21. The Audio-Visual BatVision Dataset for Research on Sight and Sound
+
+### Summary:
+
+The BatVision dataset was created to advance research in robot echolocation and audiovisual tasks by providing large-scale real-world echo data. It consists of synchronized RGB-D images and binaural microphone recordings of chirping sounds in diverse environments, from modern US office spaces to historic French university grounds. This dataset enables exploration of sound-based depth prediction and other audio-visual phenomena that are not possible with simulated data. Initial results show promising performance in audio-only depth prediction, demonstrating the potential of the dataset for real-world applications.
+
+### Take Away Information:
+
+1. Depth-from-stereo algorithms produce artifacts in low-light conditions and when objects lack textures. Combiining audio-visual information can improve task performance with one modality providing labels for the other. 
+
+2. A speaker was used to emitted chirps while two USB microphones embedded into silicone ears are used to record the echoes.
+
+3. A U-Net was trained and achieved a solid results, correctly predicting free space, obstacles and the general room layout.
+
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
