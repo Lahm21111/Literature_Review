@@ -327,7 +327,57 @@ The BatVision dataset was created to advance research in robot echolocation and 
 
 3. A U-Net was trained and achieved a solid results, correctly predicting free space, obstacles and the general room layout.
 
+## 22. Detecting the direction of emergency vehicle sirens with microphones
 
+### Summary:
+
+Sound is particularly im-portant in cases involving Emergency Vehicle (EV) sirens, horn, shouts, accident noise, a vehicle approaching from a sharp corner, poor visibility, and other instances where there is no direct line of sight or it is limited. In this work the Direction of Arrival (DoA) of an EV is detected using microphone arrays. The decision of an Autonomic Vehi-cle (AV) whether to yield to the EV is then dependent on the estimated DoA.
+
+### Take Away Information
+
+1. The author employed a MUSIC (Multiple Signal Classification) algorithm for DoA estimation. Similar to beamforming, MUSIC analyzes the eigenvectors of the autocorrelation matrix of the microphone array and evaluates the alignment between potential directions and the observed sound.
+
+2. Using just four external microphones is sufficient to detect the sound of a siren through geometric methods. However, relying on internal microphones is less effective due to reflections and the car's non-free-field acoustic environment.
+
+## 23. Dual input neural networks for positional sound source localization
+
+### Summary:
+
+The paper introduces Dual Input Neural Networks (DI-NNs) for sound source localization (SSL), which combine high-dimensional multichannel audio signals and acoustic scene metadata, such as microphone coordinates. The DI-NN is trained and evaluated on various scenarios and compared with classical methods, including Least-Squares (LS) and Convolutional Recurrent Neural Networks (CRNN). Results show that DI-NN significantly outperforms the baselines, achieving five times lower error rates.
+
+### Take Away Information:
+
+1. The author introduces the DI-NN neural network architecture which is capable of processing high-dimensional signals, namely spectrograms, along with a relevant metadata vector of lower dimensionality.
+
+2. The metadata is the concatenation of the coordinates of the microphones, the room dimensions and reverberation time.
+
+3. The neural network is divided to three parts: feature extraction network (extract the information from the spectrogram), metadata embedding network (extract the information from the metadata), metadata fusion network (fuse the information from the metadata and the audio data)
+
+4. The author didn't use a spectrogram as an input, instead, he split the real and imaginary parts of the STFT and put them in the input. A raw data will always give more information. 
+
+5. A two layer fully connected nn is used for extracting the features from the metadata, and a CRNN structure is used for the audio data.
+
+6. CNN is used to combine the local information and reduce the dimensionality, and GRU-RNN is used to propagare location information to silent time-steps
+
+7. The source of the sound is randomly placed in the room, and the place of the microphone is also changing during the data collection.
+
+## 24. Binaural SoundNet: Predicting Semantics, Depth and Motion with Binaural sounds
+
+### Summary:
+
+This work focuses on scene understanding using binaural sounds, aiming to predict semantic masks, object motion, and depth maps purely from audio. A novel sensor setup, combining eight binaural microphones and a 360° camera, is used to create a new audio-visual street scene dataset. A cross-modal distillation framework trains a sound-based model using visual methods as "teachers," eliminating the need for human annotations. Additionally, a Spatial Sound Super-Resolution task improves directional sound resolution. An end-to-end multi-task network is developed to enhance performance across all tasks.
+
+### Take Away Information:
+
+1. The author try to use the acoustic features on three scene understanding tasks: semantic prediction, depth prediction and motion prediction based on binaural sounds
+
+2. Humans localize sounds using three cues: ITD (time difference), ILD (level difference), and HRTF (frequency changes by the pinna and head).
+
+3. Except from the spectrogram, another differential digital signal processing method feature is also included.
+
+4. A joint training of the 4 tasks is beneficial to the semantic prediction task.
+
+5. ASPP is a powerful encoder for audio.
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
