@@ -378,6 +378,41 @@ This work focuses on scene understanding using binaural sounds, aiming to predic
 4. A joint training of the 4 tasks is beneficial to the semantic prediction task.
 
 5. ASPP is a powerful encoder for audio.
+
+## 25. HDMapNet: An Online HD Map Construction and Evaluation Framework
+
+### Summary:
+
+This paper introduces **HDMapNet**, a method for scalable HD semantic map learning using onboard sensors like cameras and LiDAR. HDMapNet predicts vectorized map elements in bird's-eye view, outperforming baselines by over 50% on the nuScenes dataset. New metrics are proposed to evaluate performance, and the method demonstrates the ability to predict locally consistent maps, addressing the challenges of traditional manual annotation pipelines.
+
+### Take Away Information:
+
+1. The model takes the camera image and lidar points as input and outputs vectorized map elements
+
+2. A neural view transformer is used to transform image features from perspective view to camera coordinates
+
+3. The point cloud is aggregated to pillars
+
+4. The BEV decoder is a fully convolutional network with 3 branches, for semantic segmentation, instance embedding and direction prediction branch.
+
+## 26. There is More than Meets the Eye: Self-Supervised Multi-Object Detection and
+
+### Summary:
+
+This work introduces MM-DistillNet, a self-supervised framework that leverages multiple modalities (RGB, depth, and thermal) to distill knowledge into an audio-based network. It uses a new loss function and self-supervised tasks to eliminate manual annotations. The method enables robust multi-object detection using only sound, even with a moving camera, addressing limitations of prior approaches reliant on RGB images.
+
+### Take Away Information:
+
+1. RGB, depth, and theramal are used as input 
+
+2. The network transfer the knowledge from the intermediatee layers through an alignment loss function and it aligns the features of the intermediate teacher-student layers using a probabilistic approach
+
+3. EfficientNet is used for the encoder for all the four inputs 
+
+4. A first taks is try to learn how many cars are shown in the surrounding environment 
+
+5. Two loss function are used for the optimization, the first one is the focal loss which gives a loss function to the position and the size of the bounding box, and the other one is the mta loss which compares the different bounding boxes got by different teachers.
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
