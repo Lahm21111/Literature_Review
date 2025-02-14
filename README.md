@@ -395,7 +395,7 @@ This paper introduces **HDMapNet**, a method for scalable HD semantic map learni
 
 4. The BEV decoder is a fully convolutional network with 3 branches, for semantic segmentation, instance embedding and direction prediction branch.
 
-## 26. There is More than Meets the Eye: Self-Supervised Multi-Object Detection and
+## 26. There is More than Meets the Eye: Self-Supervised Multi-Object Detection and Tracking with Sound by Distilling Multimodal Knowledge
 
 ### Summary:
 
@@ -412,6 +412,26 @@ This work introduces MM-DistillNet, a self-supervised framework that leverages m
 4. A first taks is try to learn how many cars are shown in the surrounding environment 
 
 5. Two loss function are used for the optimization, the first one is the focal loss which gives a loss function to the position and the size of the bounding box, and the other one is the mta loss which compares the different bounding boxes got by different teachers.
+
+## 27. Seeing through Sounds: Predicting Visual Semantic Segmentation Results from Multichannel Audio Signals 
+
+### Summary:
+
+This paper explores predicting semantic segmentation (image recognition) using multichannel audio signals. The authors propose a convolutional neural network that directly outputs segmentation results from audio features and employs a bilinear feature fusion scheme to capture higher-order audio-visual interactions. Experimental results on both synthetic and real sound datasets show promising performance.
+
+### Take Away Information:
+
+1. The aim of the research is to predict the semantic segmentation result with the help of the sound captured by the microphone array.
+
+2. The angular spectrum and mel frequency cepstral coefficients are used as input
+
+3. A fusion block is used to fuse the AS feature and MFCC feature, and a Tucker decomposition is used decrease the number of the parameterizations
+
+4. For the performance: FC Fusion > MFCC Only, AS Only > SpecAugment
+
+5. MFCC tends to make correct categories, and AS give a levage to the position prediction
+
+6. Spec is unable to predict the positions of the train in most of the examples 
 
 # Network Structure
 
