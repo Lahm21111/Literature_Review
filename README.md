@@ -433,6 +433,25 @@ This paper explores predicting semantic segmentation (image recognition) using m
 
 6. Spec is unable to predict the positions of the train in most of the examples 
 
+## 28. Emotion Recognition in Speech using Cross-Modal Transfer in the Wild 
+
+### Summary:
+
+This work addresses the challenge of training speech emotion recognition models without labeled audio data by leveraging the relationship between vocal and facial expressions. The authors use a cross-modal distillation approach, transferring emotion labels from facial expressions to speech. Key contributions include: (i) a state-of-the-art facial emotion recognition model, (ii) a student model that learns speech emotion embeddings without labeled audio, and (iii) successful application of these embeddings to external benchmark datasets.
+
+### Take Away Information:
+
+1. The author aims to learn a teacher-student neural network to let the audio head to learn from the vision head
+
+2. The teacher model is based on a ResNet architecture pretrained on the large-scale dataset.
+
+3. When detecting the emotion from a face-tracks, the author chose the peak frame (emotion with highest possibility)
+
+4. A proper length of the sound is necessary (the emotion should be learned from the speech prosody)
+
+5. Student model have a better performance in "angry" and "sad" which might be easier for acoustic information to learn 
+
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
