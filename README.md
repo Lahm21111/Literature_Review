@@ -451,7 +451,37 @@ This work addresses the challenge of training speech emotion recognition models 
 
 5. Student model have a better performance in "angry" and "sad" which might be easier for acoustic information to learn 
 
+## 29. Acoustic Simultaneous Localization and Mapping for Autonomous Driving
 
+### Summary:
+
+In this paper, the author aims to leverage a microphone array to address the limitations of traditional sensors in adverse weather and nighttime conditions. This approach utilizes the array to capture and process acoustic signatures, enabling simultaneous localization and mapping (SLAM) even when vision-based sensors may struggle. 
+
+### Take Away Information:
+
+1. Using a microphone array on the car offers a method with a lower cost compared with the traditional sensors
+
+2. Both DOA and distance approximations(direct-to-reverberant-ratio) are estimated 
+
+3. 8 microphones are used to form a circle layout
+
+4. Some noise (urban noise) are simulated and handled with the filter
+
+5. To estimate the distance, sounds closer to the listener have a smaller number of reverberations.
+
+## 30. Distance Estimation and Localization of Sound Sources in Reverberant Conditions using Deep Neural Network
+
+### Summary:
+
+The author designed a deep neural network model to estimate the direction(0, 30, 60) and distance(from 1m to 3m) of binaural sound sources simultaneously.
+
+### Take Away Information:
+
+1. Two separate algorithms are needed for sound source localization and distance estimation.
+
+2. The time-domain cross correlation is used as the features, which is kind of robust to the noise in the environment.
+
+3. A fully connected neural network is used for distance and direction estimation.
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
