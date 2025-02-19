@@ -482,6 +482,30 @@ The author designed a deep neural network model to estimate the direction(0, 30,
 2. The time-domain cross correlation is used as the features, which is kind of robust to the noise in the environment.
 
 3. A fully connected neural network is used for distance and direction estimation.
+
+## 31. Non Line of Sight Vehicle Localization Based on Sound 
+
+### Summary:
+
+This paper proposes a novel approach for localizing vehicles in Non-Line-of-Sight (NLoS) regions using sound, enabling the development of a sound-based active emergency braking system. A new particle filter method incorporating Acoustic-Spatial Pseudo-Likelihood (ASPLE) is introduced to track vehicles using acoustic and spatial data. Additionally, the ARIL dataset, the first to provide NLoS vehicle locations as ground truth, is proposed. The method is validated on the ARIL and OVAD datasets, demonstrating strong performance in NLoS localization. The study also analyzes how sound reflections impact the method’s accuracy.
+
+### Take Away Information:
+
+1. A novel likelihood function named ASPLE is used to estimate the location information for constructing an active emergency brake
+
+2. A novel NLOS framework is proposed by combining the acoustic information and surrounding spatial information
+
+3. The author hypothesizes different sound reflection patterns at various locations and integrates beamforming to calculate the possibility.
+
+4. Sound from different direction have different weight in particle filter
+
+5. Only n discrete azimuth bins are needed because different particles share the same bins
+
+6. 56 microphone is redundant for this scenarios, around 10 microphone is still feasible
+
+7. The model ultimately needs to be designed to consider sound paths beyond the 3rd reflection.
+
+8. The method also has a good performance in OVAD dataset which proves that the prior knowledge in particle filter is convincable.
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
