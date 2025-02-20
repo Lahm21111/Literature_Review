@@ -506,6 +506,27 @@ This paper proposes a novel approach for localizing vehicles in Non-Line-of-Sigh
 7. The model ultimately needs to be designed to consider sound paths beyond the 3rd reflection.
 
 8. The method also has a good performance in OVAD dataset which proves that the prior knowledge in particle filter is convincable.
+
+## 32. Improving multi-talker binaural DOA estimation by combining periodictiy and spatil features in convolutional neural networks
+
+### Summary:
+
+This study proposes a deep neural network-based multi-talker direction of arrival (DOA) estimation system for binaural hearing aids, integrating spatial and periodicity features. A two-stage CNN architecture is designed, utilizing cross-power spectrum (CPS) phase as spatial features and periodicity degree (PD) as spectral features. The system includes a PD feature reduction stage to enhance efficiency. Evaluations in reverberant environments with 2–3 talkers and varying noise levels show that combining PD and CPS phase features improves DOA estimation accuracy, outperforming baselines. The PD feature reduction stage further enhances performance while reducing computational complexity.
+
+### Take Away Information:
+
+1. The main objective of the author is to explore the potential benefits of incorporating periodicity features, alongside spatial features.
+
+2. The spatial input is CPS which is also a joint magnitude and the phase difference between signals from a pair of microphones 
+
+3. A reference microphone signal is chosen, and it is first decomposed into signals in different gammatone frequency bands and then undergoes half-wave rectification and band filter.
+
+4. rationale for using PD features alongside spatial features is to leverage the periodicity features as a robust footprint of speech signals in a noisy mixture.
+
+5. The author uses a 1*1 convolution layer to reduce the PD features, which increase the efficiency of the system.
+
+6. The result proves that convolutional blocks is enough to capture the temporal information
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
