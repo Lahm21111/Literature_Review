@@ -527,6 +527,30 @@ This study proposes a deep neural network-based multi-talker direction of arriva
 
 6. The result proves that convolutional blocks is enough to capture the temporal information
 
+## 33. Binaural Sound Source Distance Estimation and Localization for a Moving Listener 
+
+### Summary:
+
+This paper explores using motion-based cues for binaural source distance and direction-of-arrival estimation with a moving listener. It compares separate and joint models that integrate rotation and translation features to account for the receiver’s movement. Testing across static, head-rotating, and freely moving scenarios—with simulations covering a wide range of angles and distances—shows that motion-informed models significantly reduce errors in both DOA and distance estimation compared to static setups.
+
+### Take Away Information:
+
+1. The author focus on sound source localization which contains both direction and distance estimation
+
+2. The dropping of signal-to-noise ratio and direct-to-reverberant ratio will affect the distance estimation
+
+3. Previous research shows that the direction and distance estimation could be done in one network
+
+4. Head rotation or moving listener might give more cues about the localization of the sound source 
+
+5. The input features are time-frequency spectral features and movement of the listener (types(rotation / translation) and the distance) 
+
+6. For separate model, a scenario with a walking listener give a big improvement to the performance for direction estimation, but it will give a decreases to the estimation
+
+7. Translation features have a higher influence on the Joint Model.
+
+8. A multi-task approach outperforms the state-of-the-art technique of position estimation in most testing scenraios.
+
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
