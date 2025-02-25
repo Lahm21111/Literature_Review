@@ -551,6 +551,29 @@ This paper explores using motion-based cues for binaural source distance and dir
 
 8. A multi-task approach outperforms the state-of-the-art technique of position estimation in most testing scenraios.
 
+## 34. Speaker Distance Estimation in Enclosures From Signal-Channel Audio
+
+### Summary:
+
+This paper proposes a novel approach for continuous distance estimation from audio signals using a convolutional recurrent neural network with an attention module. Unlike traditional classification-based methods, this approach enables finer-grained distance estimation by focusing on relevant temporal and spectral features. Extensive experiments on four datasets across three levels of realism demonstrate the model's effectiveness, achieving an absolute error of 0.11m in a noiseless synthetic scenario, 1.30m in a hybrid scenario, and 0.50m in real-world conditions.
+
+### Take Away Information:
+
+1. The author proposed a CRNN based model which could predict the distance of the audio source in noiseless and noisy scenarios.
+
+2. STFT is used for the input feature and sinus and cosinus maps of the phase is used for a smoother ontinuous representation
+
+3. An attention module is desined to filter the noise in the environment. 
+
+4. ELU is used to avoid dead neurons
+
+5. The model is test on three dataset: simulation, hybrid and real dataset 
+
+6. Result with one microphone seems to be better than the method with binural microphone. To some extent, the head-related transfer functions might make it harder for the model to associate spectrotemporal reverberation.
+
+7. GRU is important for the estimation, also attention module could provide a better performance in the long range.
+
+8. 
 # Network Structure
 
 ## 1. Seld Net (DoA (Multi) Sound Source Estimation)
